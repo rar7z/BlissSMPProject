@@ -18,19 +18,19 @@ on join:
 		set {Bliss.Gem.%player%} to a random integer between 1 and 7
 		set {Bliss.Joined.%player%} to true
 		execute console command "bliss:cooldown %player%"
-		wait 10 seconds
+		wait 3 seconds
 		execute console command "clear %player%"
 		execute console command "bliss:gemgem %player%"
         
 every 1 tick:
 	set {Bliss.Energy} to nautilus shell named "&b&lᴇɴᴇʀɢʏ &r&7ɪɴ ᴀ ʙᴏᴛᴛʟᴇ" with custom model data 300
 	set {Bliss.Upgrader} to player head named "<##85ffa5>§lᴜᴘɢʀᴀᴅᴇʀ" with lore "§fʀɪɢʜᴛ-ᴄʟɪᴄᴋ ᴛᴏ ᴜᴘɢʀᴀᴅᴇ ʏᴏᴜʀ ɢᴇᴍ" and "" and "§cᴡᴀʀɴɪɴɢ: ᴜᴘɢʀᴀᴅᴇʀ ᴡɪʟʟ ᴅʀᴏᴘ ᴏɴ ᴅᴇᴀᴛʜ"
-	set {_bliss.upgrader.nbt} to "{SkullOwner:{Id:[I;1,1,1,1],Properties:{textures:[{Value:""eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDk5MmU0YThmNDNjNzdhYzJlMmQ3OTJkOTYwNGY2MWYzNDM4N2M4NzdhYmEzNzEyZTQwNDdiNzQwYzU3OCJ9fX0=""}]}}}"
-	set {Bliss.Upgrader} to {Bliss.Upgrader} with nbt compound of {_bliss.upgrader.nbt}
+	#set {_bliss.upgrader.nbt} to "{SkullOwner:{Id:[I;1,1,1,1],Properties:{textures:[{Value:""eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDk5MmU0YThmNDNjNzdhYzJlMmQ3OTJkOTYwNGY2MWYzNDM4N2M4NzdhYmEzNzEyZTQwNDdiNzQwYzU3OCJ9fX0=""}]}}}"
+	#set {Bliss.Upgrader} to {Bliss.Upgrader} with nbt compound of {_bliss.upgrader.nbt}
 	set {Bliss.Trader} to player head named "<##f7b2f7>§lᴛʀᴀᴅᴇʀ" with lore "§7ʀɪɢʜᴛ-ᴄʟɪᴄᴋ ᴛᴏ ᴄʜᴀɴɢᴇ ʏᴏᴜʀ ɢᴇᴍ ᴛʏᴘᴇ" and "§7ʏᴏᴜ ᴡɪʟʟ ʀᴇᴄᴇɪᴠᴇ ᴀ ʀᴀɴᴅᴏᴍ ɢᴇᴍ" and "" and "§cᴡᴀʀɴɪɴɢ: ᴜꜱɪɴɢ ᴛʜɪꜱ ᴡɪʟʟ ʟᴏꜱᴇ ʏᴏᴜʀ ᴄᴜʀʀᴇɴᴛ ɢᴇᴍ"
-	set {_bliss.trader.nbt} to "{SkullOwner:{Id:[I;1,1,1,1],Properties:{textures:[{Value:""eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYmY2MjRhNDRlNzdiOTVkYmUxY2M3MzU1MzY5NTNlODQwYmE2YzE5YjAxNTdjNTQ5ZDliODI1MzQ2NDhjOGNlNCJ9fX0=""}]}}}"
-	set {Bliss.Trader} to {Bliss.Trader} with nbt compound of {_bliss.trader.nbt}
-	set {_bliss.gem.pristine.max.nbt} to "{Enchantments:[{id:vanishing_curse,lvl:1}],HideFlags:1}"
+	#set {_bliss.trader.nbt} to "{SkullOwner:{Id:[I;1,1,1,1],Properties:{textures:[{Value:""eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYmY2MjRhNDRlNzdiOTVkYmUxY2M3MzU1MzY5NTNlODQwYmE2YzE5YjAxNTdjNTQ5ZDliODI1MzQ2NDhjOGNlNCJ9fX0=""}]}}}"
+	#set {Bliss.Trader} to {Bliss.Trader} with nbt compound of {_bliss.trader.nbt}
+	#set {_bliss.gem.pristine.max.nbt} to "{Enchantments:[{id:vanishing_curse,lvl:1}],HideFlags:1}"
 	loop all players:
 		if {Bliss.get.r.gem%loop-player%} is not 1:
 			set {Bliss.Gem.Old.%loop-player%} to {Bliss.Gem.%loop-player%}
@@ -417,9 +417,10 @@ on death of player:
 			send "&bYou &agained &benergy. &byour §d§lʟɪꜰᴇ &bgem is now &bPristine + 4" to attacker
 		if {Bliss.Energy.%attacker%} > 10:
 			send "&bYou &agained &benergy. &byour §d§lʟɪꜰᴇ &bgem is now &bPristine + 5" to attacker
-on respawn:
+on respawn: # Might need to be fixed still.
 	wait 1 tick
 	clearGems(player)
+	wait 1 tick
 	if {Bliss.Energy.%player%} < 0:
 		ban player due to "Out of energy"
 		kick player due to "Out of energy"
@@ -646,10 +647,13 @@ on right click:
 command /trust [<text>] [<offlineplayer>]:
 	trigger:
 		if arg-1 is "add":
-			send "🔮 &b%player% &aTrusted You" to arg-2
-			send "🔮 &aTrusted &b%arg-2%" to player
-			execute console command "tag %arg-2% add Trusted%player%"
-			set {Trusted.%player%.%arg-2%} to true
+			if {Trusted.%player%.%arg-2%} is not true:
+				send "🔮 &b%player% &aTrusted You" to arg-2
+				send "🔮 &aTrusted &b%arg-2%" to player
+				execute console command "tag %arg-2% add Trusted%player%"
+				set {Trusted.%player%.%arg-2%} to true
+			else:
+				send "🔮 &4You have already trusted &b%arg-2%" to player
 		if arg-1 is "remove":
 			send "🔮 &aUntrusted &b%arg-2%" to player
 			execute console command "tag %arg-2% remove Trusted%player%"

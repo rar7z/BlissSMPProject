@@ -1323,7 +1323,7 @@ command /bliss:givegem <player> [<text>]:
 				set {Bliss.Life.T1.%arg-1%} to {Bliss.Life.T1.%arg-1%} with nbt compound of {_bliss.gem.pristine.max.nbt}
 				give {Bliss.Life.T1.%arg-1%} to arg-1 
 on tab complete for "/bliss:givegem":
-	set tab completions for position 2 to "StrengthT1" and "StrengthT2" and "FireT1" and "FireT2" and "WealthT1" and "WealthT2" and "SpeedT1" and "SpeedT2" and "PuffT1" and "PuffT2" and "AstraT1" and "AstraT2" and "LifeT1" and "LifeT2" and "FrostT1" and "FrostT2"
+	set tab completions for position 2 to "StrengthT1" and "StrengthT2" and "FireT1" and "FireT2" and "WealthT1" and "WealthT2" and "SpeedT1" and "SpeedT2" and "PuffT1" and "PuffT2" and "AstraT1" and "AstraT2" and "LifeT1" and "LifeT2"
 
 
 	#[<-----------------Gem Powers----------------->]

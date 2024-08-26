@@ -25,12 +25,7 @@ on join:
 every 1 tick:
 	set {Bliss.Energy} to nautilus shell named "&b&lᴇɴᴇʀɢʏ &r&7ɪɴ ᴀ ʙᴏᴛᴛʟᴇ" with custom model data 300
 	set {Bliss.Upgrader} to player head named "<##85ffa5>§lᴜᴘɢʀᴀᴅᴇʀ" with lore "§fʀɪɢʜᴛ-ᴄʟɪᴄᴋ ᴛᴏ ᴜᴘɢʀᴀᴅᴇ ʏᴏᴜʀ ɢᴇᴍ" and "" and "§cᴡᴀʀɴɪɴɢ: ᴜᴘɢʀᴀᴅᴇʀ ᴡɪʟʟ ᴅʀᴏᴘ ᴏɴ ᴅᴇᴀᴛʜ"
-	#set {_bliss.upgrader.nbt} to "{SkullOwner:{Id:[I;1,1,1,1],Properties:{textures:[{Value:""eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDk5MmU0YThmNDNjNzdhYzJlMmQ3OTJkOTYwNGY2MWYzNDM4N2M4NzdhYmEzNzEyZTQwNDdiNzQwYzU3OCJ9fX0=""}]}}}"
-	#set {Bliss.Upgrader} to {Bliss.Upgrader} with nbt compound of {_bliss.upgrader.nbt}
 	set {Bliss.Trader} to player head named "<##f7b2f7>§lᴛʀᴀᴅᴇʀ" with lore "§7ʀɪɢʜᴛ-ᴄʟɪᴄᴋ ᴛᴏ ᴄʜᴀɴɢᴇ ʏᴏᴜʀ ɢᴇᴍ ᴛʏᴘᴇ" and "§7ʏᴏᴜ ᴡɪʟʟ ʀᴇᴄᴇɪᴠᴇ ᴀ ʀᴀɴᴅᴏᴍ ɢᴇᴍ" and "" and "§cᴡᴀʀɴɪɴɢ: ᴜꜱɪɴɢ ᴛʜɪꜱ ᴡɪʟʟ ʟᴏꜱᴇ ʏᴏᴜʀ ᴄᴜʀʀᴇɴᴛ ɢᴇᴍ"
-	#set {_bliss.trader.nbt} to "{SkullOwner:{Id:[I;1,1,1,1],Properties:{textures:[{Value:""eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYmY2MjRhNDRlNzdiOTVkYmUxY2M3MzU1MzY5NTNlODQwYmE2YzE5YjAxNTdjNTQ5ZDliODI1MzQ2NDhjOGNlNCJ9fX0=""}]}}}"
-	#set {Bliss.Trader} to {Bliss.Trader} with nbt compound of {_bliss.trader.nbt}
-	#set {_bliss.gem.pristine.max.nbt} to "{Enchantments:[{id:vanishing_curse,lvl:1}],HideFlags:1}"
 	loop all players:
 		if {Bliss.get.r.gem%loop-player%} is not 1:
 			set {Bliss.Gem.Old.%loop-player%} to {Bliss.Gem.%loop-player%}
@@ -831,7 +826,6 @@ command /bliss:cooldown <player>:
 command /bliss:givegem <player> [<text>]:
 	permission: op
 	trigger:
-		set {_bliss.gem.pristine.max.nbt} to "{Enchantments:[{id:vanishing_curse,lvl:1}],HideFlags:1}"
 		if arg-2 is "StrengthT2":
 			if {Bliss.Energy.%arg-1%} is 1:
 				set {Bliss.Strength.T2.%arg-1%} to prismarine shard named "&4&lꜱᴛʀᴇɴɢᴛʜ &r&eɢᴇᴍ" with lore "§f§lʜᴀᴠᴇ ᴛʜᴇ ꜱᴛʀᴇɴɢᴛʜ ᴏꜰ ᴀ ᴀʀᴍʏ" and "§eᴘᴀꜱꜱɪᴠᴇꜱ" and "&8Broken Gem" and " §4🔮 §7Strength 2," and " §7Auto enchants sharpness 5" and " §7BloodThorns, deal more damage the lower in health you are" and "" and "§bᴘᴏᴡᴇʀꜱ" and "§7-§4🤺 §7ꜰʀᴀɪʟᴇʀ" and " §4🧑🏻§7 Clears strength effect" and " §7gives weakness 1 for 20 seconds" and " §4🤼§7 Clears strength effect" and " §7and gives withering§f. 40s, R5" and "§7-§4⚔ ᴄʜᴀᴅ ꜱᴛʀᴇɴɢᴛʜ" and " §a🧑🏻§7 Every 3 crits charges a hit that deals 2x the dmg" and " §a🤼§7 Every 11 crits charges a hit that deals 2x the dmg" with custom model data 96
@@ -865,7 +859,6 @@ command /bliss:givegem <player> [<text>]:
 				give {Bliss.Strength.T2.%arg-1%} to arg-1
 			if {Bliss.Energy.%arg-1%} > 10:
 				set {Bliss.Strength.T2.%arg-1%} to prismarine shard named "&4&lꜱᴛʀᴇɴɢᴛʜ &r&eɢᴇᴍ" with lore "§f§lʜᴀᴠᴇ ᴛʜᴇ ꜱᴛʀᴇɴɢᴛʜ ᴏꜰ ᴀ ᴀʀᴍʏ" and "§eᴘᴀꜱꜱɪᴠᴇꜱ" and "&bPristine + 5 Gem" and " §4🔮 §7Strength 2," and " §7Auto enchants sharpness 5" and " §7BloodThorns, deal more damage the lower in health you are" and "" and "§bᴘᴏᴡᴇʀꜱ" and "§7-§4🤺 §7ꜰʀᴀɪʟᴇʀ" and " §4🧑🏻§7 Clears strength effect" and " §7gives weakness 1 for 20 seconds" and " §4🤼§7 Clears strength effect" and " §7and gives withering§f. 40s, R5" and "§7-§4⚔ ᴄʜᴀᴅ ꜱᴛʀᴇɴɢᴛʜ" and " §a🧑🏻§7 Every 5 crits charges a hit that deals 2x the dmg" and " §a🤼§7 Every 11 crits charges a hit that deals 2x the dmg" with custom model data 10
-				set {Bliss.Strength.T2.%arg-1%} to {Bliss.Strength.T2.%arg-1%} with nbt compound of {_bliss.gem.pristine.max.nbt}
 				give {Bliss.Strength.T2.%arg-1%} to arg-1
 		if arg-2 is "FireT2":
 			if {Bliss.Energy.%arg-1%} is 1:
@@ -900,7 +893,6 @@ command /bliss:givegem <player> [<text>]:
 				give {Bliss.Fire.T2.%arg-1%} to arg-1
 			if {Bliss.Energy.%arg-1%} > 10:
 				set {Bliss.Fire.T2.%arg-1%} to prismarine shard named "§6§lꜰɪʀᴇ §r§eɢᴇᴍ" with lore "§f§lᴍᴀɴɪᴘᴜʟᴀᴛᴇ ꜰɪʀᴇ" and "§eᴘᴀꜱꜱɪᴠᴇꜱ" and "&bPristine + 5 Gem" and " §6🔮 Auto Smelting Longer FireThorns" and " §7Flame & Fire Aspect 2" and "" and "§bᴘᴏᴡᴇʀꜱ" and "§7-§e🧨§6 ꜰɪʀᴇʙᴀʟʟ" and " §7Spawns a fireball that charges up passively" and " §7When on fire blocks charges 2x as fast" and " §7Deals more damage the more you charge it" and "§7-§e🥾 §9ᴄᴏᴢʏ ᴄᴀᴍᴘꜰɪʀᴇ" and " §7Spawns a campfire that gives saturation" and " §7a second in a 4 block radius" with custom model data 2
-				set {Bliss.Fire.T2.%arg-1%} to {Bliss.Fire.T2.%arg-1%} with nbt compound of {_bliss.gem.pristine.max.nbt}
 				give {Bliss.Fire.T2.%arg-1%} to arg-1
 		if arg-2 is "WealthT2":
 			if {Bliss.Energy.%arg-1%} is 1:
@@ -935,7 +927,6 @@ command /bliss:givegem <player> [<text>]:
 				give {Bliss.Wealth.T2.%arg-1%} to arg-1
 			if {Bliss.Energy.%arg-1%} > 10:
 				set {Bliss.Wealth.T2.%arg-1%} to prismarine shard named "§2§lᴡᴇᴀʟᴛʜ §r§7ɢᴇᴍ" with lore "§f§lꜰᴜᴇʟ ᴀ ᴇᴍᴘɪʀᴇ" and "§eᴘᴀꜱꜱɪᴠᴇꜱ" and "&bPristine + 5 Gem" and " §2🔮 §7Even cheaper villager trades, Luck" and " §7Auto enchants looting 3, fortune 3, mending" and " §7Get two more ore for every 3 ores mined" and " §72x the netherite scrap when taken out of furnace" and "" and "§bᴘᴏᴡᴇʀꜱ" and "§7-§a🍀 §cᴜɴꜰᴏʀᴛᴜɴᴇ" and " §4🤼 §71/10 of actions canceled §f8s, R2" and " §4🧑🏻 §71/2 of actions canceled §f40s" and "§7-§a💸 §eʀɪᴄʜ ʀᴜꜱʜ" and " &7Gives Blidness and Glowing to untrusted" and " §7Double the ores for 5 minutes" with custom model data 12
-				set {Bliss.Wealth.T2.%arg-1%} to {Bliss.Wealth.T2.%arg-1%} with nbt compound of {_bliss.gem.pristine.max.nbt}
 				give {Bliss.Wealth.T2.%arg-1%} to arg-1
 		if arg-2 is "SpeedT2":
 			if {Bliss.Energy.%arg-1%} is 1:
@@ -970,7 +961,6 @@ command /bliss:givegem <player> [<text>]:
 				give {Bliss.Speed.T2.%arg-1%} to arg-1
 			if {Bliss.Energy.%arg-1%} > 10:
 				set {Bliss.Speed.T2.%arg-1%} to prismarine shard named "§e§lꜱᴘᴇᴇᴅ §r§7ɢᴇᴍ" with lore "§f§lᴡᴀᴛᴄʜ ᴛʜᴇ ᴡᴏʀʟᴅ ᴀʀᴏᴜɴᴅ ʏᴏᴜ ᴛᴜʀɴ ɪɴᴛᴏ ᴀ ʙʟᴜʀ" and "§eᴘᴀꜱꜱɪᴠᴇꜱ" and "§bPristine + 5 Gem" and " §e🔮 §7Speed 3, Dolphins Grace" and " §7and Immune to soul sand, auto enchants efficiency 5" and "" and "§bᴘᴏᴡᴇʀꜱ" and "§7-§e🎯§fꜱʟᴏᴛʜꜱ ꜱᴇᴅᴀᴛɪᴠᴇ" and " §4🤼 §7Slowness 2, mining fatigue 3" and " §7Clears speed effects, 0.8x slower crits, §f30s, R4" and " §4🧑🏻 §7Slowness 4, mining fatigue 3" and " §7Clears speed effects, 0.5x slower crits, §f40s" and "" and "§7-§e🌩 §bꜱᴘᴇᴇᴅʏ ꜱᴛᴏʀᴍ §f40s R4" and " §a🧑🏻§7Spawns a Thunder Storm with lighting strikes" and " §7the caster gets constant 1.5x faster crits while" and " §7the storm is active and speed 3 while in the storm." and " §7Trusted get 1.3x faster crits and speed 3 in the storm" and " §7If trusted or caster get struck by thunder they get" and " §7Speed 6 and 2.2x faster crits, If untrusted is stuck" and " §7by thunder they are stunded for 2s" and " §a🤼§7Gives trusted 1.5x faster crits and speed 3." with custom model data 8
-				set {Bliss.Speed.T2.%arg-1%} to {Bliss.Speed.T2.%arg-1%} with nbt compound of {_bliss.gem.pristine.max.nbt}
 				give {Bliss.Speed.T2.%arg-1%} to arg-1
 		if arg-2 is "PuffT2":
 			if {Bliss.Energy.%arg-1%} is 1:
@@ -1005,7 +995,6 @@ command /bliss:givegem <player> [<text>]:
 				give {Bliss.Puff.T2.%arg-1%} to arg-1
 			if {Bliss.Energy.%arg-1%} > 10:
 				set {Bliss.Puff.T2.%arg-1%} to prismarine shard named "§f§lᴘᴜꜰꜰ §r§eɢᴇᴍ" with lore "§f§lʙᴇ ᴛʜᴇ ʙɪɢɢᴇꜱᴛ ʙɪʀᴅ" and "§eᴘᴀꜱꜱɪᴠᴇꜱ" and "§bPristine + 5 Gem" and " §f🔮 §7No fall damage, double jump" and " §7Auto Enchant Power 5 & Punch 2" and " §7and feather falling 4" and "" and "§bᴘᴏᴡᴇʀꜱ" and "§7-§f☁ʙʀᴇᴇᴢʏ ʙᴀꜱʜ" and " §4🧑🏻 §7Lifts player 35 blocks and smashes" and " §7them down at a high velocity" and " §4🤼 §7Pushes enemies away from you" and "" and "§7-§f⏫ᴅᴀꜱʜ" and " §7Dashes you in the direction you are looking" and " §7deals 2 hearts of damage regardless the protection" and " §7to players and the mobs upon contact" with custom model data 6
-				set {Bliss.Puff.T2.%arg-1%} to {Bliss.Puff.T2.%arg-1%} with nbt compound of {_bliss.gem.pristine.max.nbt}
 				give {Bliss.Puff.T2.%arg-1%} to arg-1
 		if arg-2 is "AstraT2":
 			if {Bliss.Energy.%arg-1%} is 1:
@@ -1040,7 +1029,6 @@ command /bliss:givegem <player> [<text>]:
 				give {Bliss.Astra.T2.%arg-1%} to arg-1
 			if {Bliss.Energy.%arg-1%} > 10:
 				set {Bliss.Astra.T2.%arg-1%} to prismarine shard named "§5§lᴀꜱᴛʀᴀ §r§7ɢᴇᴍ" with lore "§f§lᴍᴀɴᴀɢᴇ ᴛʜᴇ ᴛɪᴅᴇꜱ ᴏꜰ ᴛʜᴇ ᴄᴏꜱᴍᴏꜱ" and "§eᴘᴀꜱꜱɪᴠᴇꜱ" and "§bPristine + 5 Gem" and " §5🔮 §715%% of all attacks will phase" and " §7through you. Absorbing souls will heal" and " §7you 2.5 hearts if mob, 5 if player." and " §7Capture 2 mobs inside your gem. releasing" and " §7them in the opposite order they were captured." and "" and "§bᴘᴏᴡᴇʀꜱ" and "§7-§f🔪 §7ᴅᴀɢɢᴇʀꜱ" and " §7Shoot 5 daggers, if a player is hit with one" and " §7they take 3 hearts of damage and their gem is" and " §7disabled for 10 seconds for every dagger they're hit with." and " §4🤼§7 Enter the body of that player. exit by crouching or" and " §7when that player receives damage. Leaving the body" and " §7will haunt them disabling their gem for 10 seconds" and "" and "§7-§f👻 §7ᴀꜱᴛʀᴀʟ ᴘʀᴏᴊᴇᴄᴛɪᴏɴ" and " §7Become a projection and explore in a 150 block" and " §7radius Spook players by left clicking with your gem," and " §7radius or tagging them with right click." and " §7You exit Astral state if your npc is hit," and " §7or you click the air with an empty hand" with custom model data 14
-				set {Bliss.Astra.T2.%arg-1%} to {Bliss.Astra.T2.%arg-1%} with nbt compound of {_bliss.gem.pristine.max.nbt}
 				give {Bliss.Astra.T2.%arg-1%} to arg-1
 		if arg-2 is "LifeT2":
 			if {Bliss.Energy.%arg-1%} is 1:
@@ -1075,7 +1063,6 @@ command /bliss:givegem <player> [<text>]:
 				give {Bliss.Life.T2.%arg-1%} to arg-1
 			if {Bliss.Energy.%arg-1%} is 11:
 				set {Bliss.Life.T2.%arg-1%} to prismarine shard named "§d§lʟɪꜰᴇ §r§7ɢᴇᴍ" with lore "§f§lᴄᴏɴᴛʀᴏʟ ᴛʜᴇ ʙᴀʟᴀɴᴄᴇ ᴏꜰ ʟɪꜰᴇ" and "§eᴘᴀꜱꜱɪᴠᴇꜱ" and "&bPristine + 5 Gem" and " §d🔮 §7Grow plants by crouch" and " §7clicking with bare hand, add 2 dmg" and " §7to undead mobs, 2 + saturation" and " §7Immune to withering. Heal half a heart every 5 seconds" and " §72 more hearts from gapples" and "" and "§bᴘᴏᴡᴇʀꜱ" and "§7-§d💘 ʜᴇᴀʀᴛ ᴅʀᴀɪɴᴇʀ" and " §4🧑🏻§7 Removes 4 hearts §f20s" and " §4🤼 §7Removes 2 hearts §fR4, 1m" and "" and "§7-§d💖 §bᴄɪʀᴄʟᴇ ᴏꜰ ʟɪꜰᴇ" and " §2🧑🏻§7 Summons a 8 block wide zone that follows you" and "§7 Gives trusted +4, Untrusted -4 hearts" and "§7 slowly mends armour and tools if trusted" and "§7 caster only can steal health while zone is active" and " §a🤼 §7Gives trusted players +4 hearts for §f1m 30s R4" with custom model data 4
-				set {Bliss.Life.T2.%arg-1%} to {Bliss.Life.T2.%arg-1%} with nbt compound of {_bliss.gem.pristine.max.nbt}
 				give {Bliss.Life.T2.%arg-1%} to arg-1
 		if arg-2 is "StrengthT1":
 			if {Bliss.Energy.%arg-1%} is 1:
@@ -1110,7 +1097,6 @@ command /bliss:givegem <player> [<text>]:
 				give {Bliss.Strength.T1.%arg-1%} to arg-1
 			if {Bliss.Energy.%arg-1%} > 10:
 				set {Bliss.Strength.T1.%arg-1%} to amethyst shard named "&4&lꜱᴛʀᴇɴɢᴛʜ &r&eɢᴇᴍ" with lore "§f§lʜᴀᴠᴇ ᴛʜᴇ ꜱᴛʀᴇɴɢᴛʜ ᴏꜰ ᴀ ᴀʀᴍʏ" and "§eᴘᴀꜱꜱɪᴠᴇꜱ" and "&bPristine + 5 Gem" and " §4🔺 §7Strength 1," and " §7Auto enchants sharpness 3" and "" and "§bᴘᴏᴡᴇʀꜱ" and "§7-§4🤺 §7ꜰʀᴀɪʟᴇʀ" and " §4🧑🏻§7 Clears strength effect" and " §7gives weakness 1 for 20 seconds" with custom model data 9
-				set {Bliss.Strength.T1.%arg-1%} to {Bliss.Strength.T1.%arg-1%} with nbt compound of {_bliss.gem.pristine.max.nbt}
 				give {Bliss.Strength.T1.%arg-1%} to arg-1
 		if arg-2 is "FireT1":
 			if {Bliss.Energy.%arg-1%} is 1:
@@ -1145,7 +1131,6 @@ command /bliss:givegem <player> [<text>]:
 				give {Bliss.Fire.T1.%arg-1%} to arg-1
 			if {Bliss.Energy.%arg-1%} > 10:
 				set {Bliss.Fire.T1.%arg-1%} to amethyst shard named "§6§lꜰɪʀᴇ §r§eɢᴇᴍ" with lore "§f§lᴍᴀɴɪᴘᴜʟᴀᴛᴇ ꜰɪʀᴇ" and "§eᴘᴀꜱꜱɪᴠᴇꜱ" and "&bPristine + 5 Gem" and " §6🔺 §7Auto Enchant Flame," and " §7& Fire Aspect 1 Immune" and " §7to fire & lava" and "" and "§bᴘᴏᴡᴇʀꜱ" and "§7-§e🥾 §9ᴄᴏᴢʏ ᴄᴀᴍᴘꜰɪʀᴇ" and " §7Spawns a campfire that gives saturation" and " §7a second in a 4 block radius" with custom model data 1
-				set {Bliss.Fire.T1.%arg-1%} to {Bliss.Fire.T1.%arg-1%} with nbt compound of {_bliss.gem.pristine.max.nbt}
 				give {Bliss.Fire.T1.%arg-1%} to arg-1
 		if arg-2 is "WealthT1":
 			if {Bliss.Energy.%arg-1%} is 1:
@@ -1180,7 +1165,6 @@ command /bliss:givegem <player> [<text>]:
 				give {Bliss.Wealth.T1.%arg-1%} to arg-1
 			if {Bliss.Energy.%arg-1%} > 10:
 				set {Bliss.Wealth.T1.%arg-1%} to amethyst shard named "§2§lᴡᴇᴀʟᴛʜ §r§7ɢᴇᴍ" with lore "§f§lꜰᴜᴇʟ ᴀ ᴇᴍᴘɪʀᴇ" and "§eᴘᴀꜱꜱɪᴠᴇꜱ" and "&bPristine + 5 Gem" and " §2🔺 §7Even cheaper villager trades, Luck" and " §7Auto enchants looting 1, fortune 1" and "" and "§bᴘᴏᴡᴇʀꜱ" and "§7-§a🍀 §cᴜɴꜰᴏʀᴛᴜɴᴇ" and " §4🧑🏻 §71/2 of actions canceled §f15s" with custom model data 11
-				set {Bliss.Wealth.T1.%arg-1%} to {Bliss.Wealth.T1.%arg-1%} with nbt compound of {_bliss.gem.pristine.max.nbt}
 				give {Bliss.Wealth.T1.%arg-1%} to arg-1
 		if arg-2 is "SpeedT1":
 			if {Bliss.Energy.%arg-1%} is 1:
@@ -1215,7 +1199,6 @@ command /bliss:givegem <player> [<text>]:
 				give {Bliss.Speed.T1.%arg-1%} to arg-1
 			if {Bliss.Energy.%arg-1%} > 10:
 				set {Bliss.Speed.T1.%arg-1%} to amethyst shard named "§e§lꜱᴘᴇᴇᴅ §r§7ɢᴇᴍ" with lore "§f§lᴡᴀᴛᴄʜ ᴛʜᴇ ᴡᴏʀʟᴅ ᴀʀᴏᴜɴᴅ ʏᴏᴜ ᴛᴜʀɴ ɪɴᴛᴏ ᴀ ʙʟᴜʀ" and "§eᴘᴀꜱꜱɪᴠᴇꜱ" and "§bPristine + 5 Gem" and " §e🔺 §7Speed 2, Immune to soul sand" and " §7Auto enchants efficiency 2" and "" and "§bᴘᴏᴡᴇʀꜱ" and "§7-§e🎯§fꜱʟᴏᴛʜꜱ ꜱᴇᴅᴀᴛɪᴠᴇ" and " §4🤼 §7Slowness 1, mining fatigue 2" and " §7Clears speed effects, 0.8x slower crits, §f20s, R4" with custom model data 7
-				set {Bliss.Speed.T1.%arg-1%} to {Bliss.Speed.T1.%arg-1%} with nbt compound of {_bliss.gem.pristine.max.nbt}
 				give {Bliss.Speed.T1.%arg-1%} to arg-1
 		if arg-2 is "PuffT1":
 			if {Bliss.Energy.%arg-1%} is 1:
@@ -1250,7 +1233,6 @@ command /bliss:givegem <player> [<text>]:
 				give {Bliss.Puff.T1.%arg-1%} to arg-1
 			if {Bliss.Energy.%arg-1%} > 10:
 				set {Bliss.Puff.T1.%arg-1%} to amethyst shard named "§f§lᴘᴜꜰꜰ §r§eɢᴇᴍ" with lore "§f§lʙᴇ ᴛʜᴇ ʙɪɢɢᴇꜱᴛ ʙɪʀᴅ" and "§eᴘᴀꜱꜱɪᴠᴇꜱ" and "§bPristine + 5 Gem" and " §f🔺 §7No fall damage, double jump" and " §7Auto Enchant Power 3 & Punch" and " §7and feather falling 2" and "" and "§bᴘᴏᴡᴇʀꜱ" and "§7-§f⏫ᴅᴀꜱʜ" and " §7Dashes you in the direction you are looking" and " §7deals 2 hearts of damage" and " §7to players and the mobs upon contact" with custom model data 5
-				set {Bliss.Puff.T1.%arg-1%} to {Bliss.Puff.T1.%arg-1%} with nbt compound of {_bliss.gem.pristine.max.nbt}
 				give {Bliss.Puff.T1.%arg-1%} to arg-1
 		if arg-2 is "AstraT1":
 			if {Bliss.Energy.%arg-1%} is 1:
@@ -1285,7 +1267,6 @@ command /bliss:givegem <player> [<text>]:
 				give {Bliss.Astra.T1.%arg-1%} to arg-1
 			if {Bliss.Energy.%arg-1%} > 10:
 				set {Bliss.Astra.T1.%arg-1%} to amethyst shard named "§5§lᴀꜱᴛʀᴀ §r§7ɢᴇᴍ" with lore "§f§lᴍᴀɴᴀɢᴇ ᴛʜᴇ ᴛɪᴅᴇꜱ ᴏꜰ ᴛʜᴇ ᴄᴏꜱᴍᴏꜱ" and "§eᴘᴀꜱꜱɪᴠᴇꜱ" and "§bPristine + 5 Gem" and " §5🔺 §715%% of all attacks will phase" and " §7through you. Absorbing souls will heal" and " §7you 2.5 hearts if mob, 5 if player." and " §7Capture 2 mobs inside your gem. releasing" and " §7them in the opposite order they were captured." and "" and "§bᴘᴏᴡᴇʀꜱ" and "§7-§f👻 §7ᴀꜱᴛʀᴀʟ ᴘʀᴏᴊᴇᴄᴛɪᴏɴ" and " §7Spook players around you" and " §7in a 5 block radius" with custom model data 13
-				set {Bliss.Astra.T1.%arg-1%} to {Bliss.Astra.T1.%arg-1%} with nbt compound of {_bliss.gem.pristine.max.nbt}
 				give {Bliss.Astra.T1.%arg-1%} to arg-1
 		if arg-2 is "LifeT1":
 			if {Bliss.Energy.%arg-1%} is 1:
@@ -1320,7 +1301,6 @@ command /bliss:givegem <player> [<text>]:
 				give {Bliss.Life.T1.%arg-1%} to arg-1
 			if {Bliss.Energy.%arg-1%} > 10:
 				set {Bliss.Life.T1.%arg-1%} to amethyst shard named "§d§lʟɪꜰᴇ §r§7ɢᴇᴍ" with lore "§f§lᴄᴏɴᴛʀᴏʟ ᴛʜᴇ ʙᴀʟᴀɴᴄᴇ ᴏꜰ ʟɪꜰᴇ" and "§eᴘᴀꜱꜱɪᴠᴇꜱ" and "&bPristine + 5 Gem" and " §d🔺 §7Grow plants by crouch" and " §7clicking with bare hand, add 2 dmg" and " §7to undead mobs, 2 + saturation" and "" and "§bᴘᴏᴡᴇʀꜱ" and "§7-§d💘 ʜᴇᴀʀᴛ ᴅʀᴀɪɴᴇʀ" and " §4🧑🏻§7 Removes 2 hearts §f20s" with custom model data 3
-				set {Bliss.Life.T1.%arg-1%} to {Bliss.Life.T1.%arg-1%} with nbt compound of {_bliss.gem.pristine.max.nbt}
 				give {Bliss.Life.T1.%arg-1%} to arg-1 
 on tab complete for "/bliss:givegem":
 	set tab completions for position 2 to "StrengthT1" and "StrengthT2" and "FireT1" and "FireT2" and "WealthT1" and "WealthT2" and "SpeedT1" and "SpeedT2" and "PuffT1" and "PuffT2" and "AstraT1" and "AstraT2" and "LifeT1" and "LifeT2"

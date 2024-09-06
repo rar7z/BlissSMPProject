@@ -15,7 +15,7 @@ on join:
 	set {Shootdagger..%player%} to false
 	if {Bliss.Joined.%player%} is not true:
 		set {Bliss.Energy.%player%} to 6
-		set {Bliss.Gem.%player%} to a random integer between 1 and 7
+		set {Bliss.Gem.%player%} to a random integer between 1 and 8
 		set {Bliss.Joined.%player%} to true
 		execute console command "bliss:cooldown %player%"
 		wait 3 seconds
@@ -3300,7 +3300,7 @@ on left click:
 				send "&6🔮 &cYour §6🧨Fireball &cis on cooldown for &6%{Fire3.%player%}%" to player
 			if {fireball.%player%} is 1:
 				set {fireball.%player%} to 0
-				spawn fireball 1 block above player with nbt from "{ExplosionPower:2.5}"
+				spawn fireball 1 block above player with nbt from "{ExplosionPower:2}"
 				set {fireball::%player%} to last spawned fireball
 				push {fireball::%player%} in player's direction at force 10
 				kill {fireball.armorstand.%player%}
@@ -3312,7 +3312,7 @@ on left click:
 				set {zerodamage..%player%} to false
 			if {fireball.%player%} is 2:
 				set {fireball.%player%} to 0
-				spawn fireball 1 block above player with nbt from "{ExplosionPower:2.7}"
+				spawn fireball 1 block above player with nbt from "{ExplosionPower:2.2}"
 				set {fireball::%player%} to last spawned fireball
 				push {fireball::%player%} in player's direction at force 11
 				kill {fireball.armorstand.%player%}
@@ -3324,7 +3324,7 @@ on left click:
 				set {zerodamage..%player%} to false
 			if {fireball.%player%} is 3:
 				set {fireball.%player%} to 0
-				spawn fireball 1 block above player with nbt from "{ExplosionPower:3}"
+				spawn fireball 1 block above player with nbt from "{ExplosionPower:2.4}"
 				set {fireball::%player%} to last spawned fireball
 				push {fireball::%player%} in player's direction at force 13
 				kill {fireball.armorstand.%player%}
@@ -3336,7 +3336,7 @@ on left click:
 				set {zerodamage..%player%} to false
 			if {fireball.%player%} is 4:
 				set {fireball.%player%} to 0
-				spawn fireball 1 block above player with nbt from "{ExplosionPower:3.2}"
+				spawn fireball 1 block above player with nbt from "{ExplosionPower:2.6}"
 				set {fireball::%player%} to last spawned fireball
 				push {fireball::%player%} in player's direction at force 14
 				kill {fireball.armorstand.%player%}
@@ -3348,7 +3348,7 @@ on left click:
 				set {zerodamage..%player%} to false
 			if {fireball.%player%} is 5:
 				set {fireball.%player%} to 0
-				spawn fireball 1 block above player with nbt from "{ExplosionPower:3.5}"
+				spawn fireball 1 block above player with nbt from "{ExplosionPower:2.8}"
 				set {fireball::%player%} to last spawned fireball
 				push {fireball::%player%} in player's direction at force 16
 				kill {fireball.armorstand.%player%}
@@ -3360,7 +3360,7 @@ on left click:
 				set {zerodamage..%player%} to false
 			if {fireball.%player%} is 6:
 				set {fireball.%player%} to 0
-				spawn fireball 1 block above player with nbt from "{ExplosionPower:4}"
+				spawn fireball 1 block above player with nbt from "{ExplosionPower:3}"
 				set {fireball::%player%} to last spawned fireball
 				push {fireball::%player%} in player's direction at force 18
 				kill {fireball.armorstand.%player%}
@@ -3372,7 +3372,7 @@ on left click:
 				set {zerodamage..%player%} to false
 			if {fireball.%player%} is 7:
 				set {fireball.%player%} to 0
-				spawn fireball 1 block above player with nbt from "{ExplosionPower:4.2}"
+				spawn fireball 1 block above player with nbt from "{ExplosionPower:3.2}"
 				set {fireball::%player%} to last spawned fireball
 				push {fireball::%player%} in player's direction at force 20
 				kill {fireball.armorstand.%player%}
@@ -3384,7 +3384,7 @@ on left click:
 				set {zerodamage..%player%} to false
 			if {fireball.%player%} is 8:
 				set {fireball.%player%} to 0
-				spawn fireball 1 block above player with nbt from "{ExplosionPower:4.5}"
+				spawn fireball 1 block above player with nbt from "{ExplosionPower:3.4}"
 				set {fireball::%player%} to last spawned fireball
 				push {fireball::%player%} in player's direction at force 22
 				kill {fireball.armorstand.%player%}
@@ -3396,7 +3396,7 @@ on left click:
 				set {zerodamage..%player%} to false
 			if {fireball.%player%} is 9:
 				set {fireball.%player%} to 0
-				spawn fireball 1 block above player with nbt from "{ExplosionPower:5}"
+				spawn fireball 1 block above player with nbt from "{ExplosionPower:3.7}"
 				set {fireball::%player%} to last spawned fireball
 				push {fireball::%player%} in player's direction at force 25
 				kill {fireball.armorstand.%player%}
@@ -3408,7 +3408,7 @@ on left click:
 				set {zerodamage..%player%} to false
 			if {fireball.%player%} is 10:
 				set {fireball.%player%} to 0
-				spawn fireball 1 block above player with nbt from "{ExplosionPower:6}"
+				spawn fireball 1 block above player with nbt from "{ExplosionPower:4}"
 				set {fireball::%player%} to last spawned fireball
 				push {fireball::%player%} in player's direction at force 25
 				kill {fireball.armorstand.%player%}

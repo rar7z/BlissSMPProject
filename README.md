@@ -13,3 +13,5 @@ Skbee: https://www.spigotmc.org/resources/skbee-skript-addon.75839/
 SkRayFall: https://www.spigotmc.org/resources/skrayfall.10012/
 
 skript-particle: https://www.spigotmc.org/resources/skript-particle.112875/
+
+Lusk: https://www.spigotmc.org/resources/lusk.108428/

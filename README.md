@@ -15,3 +15,7 @@ SkRayFall: https://www.spigotmc.org/resources/skrayfall.10012/
 skript-particle: https://www.spigotmc.org/resources/skript-particle.112875/
 
 Lusk: https://www.spigotmc.org/resources/lusk.108428/
+
+skript-citizens: https://www.spigotmc.org/resources/skript-citizens.112048/
+
+Citizens: https://ci.citizensnpcs.co/job/Citizens2/

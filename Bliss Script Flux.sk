@@ -9796,7 +9796,14 @@ on damage:
 							set {-fluxKiller} to attacker
 							set {ground.%victim's uuid%} to true
 							damage victim by {-fluxKinetic::%attacker's uuid%} percent of victim's health
-							wait 3 seconds
+							loop 3 times:
+								loop 10 times:
+									set {_attacker} to location 1 metres above attacker
+									set {_victim} to location 1 metres above victim
+									set {_trail} to a line from {_victim} to {_attacker}
+									set particle of {_trail} to dust particle using dustOption(rgb(16, 131, 173), 1.5) with force
+									draw shapes {_trail} at {_victim}
+									wait 0.1 seconds
 							set {ground.%victim's uuid%} to false
 							delete {-fluxKiller}
 
